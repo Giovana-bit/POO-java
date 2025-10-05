@@ -8,6 +8,7 @@ public class Cachorro {
     private int altura;
     private double peso;
     private int tamanhoDoRabo;
+    private int numerosDeCachorros;
 
     //Construtor padrão - recebe nada
     public Cachorro(){}
@@ -20,6 +21,8 @@ public class Cachorro {
         this.peso = peso;
         this.tamanhoDoRabo = tamanhoDoRabo;
         this.estadoDeEspirito = estadoDeEspirito;
+
+        numerosDeCachorros ++;
     }
 
     //Estado de espirito do cachorro
@@ -70,6 +73,14 @@ public class Cachorro {
         return estadoDeEspirito;
     }
 
+    public int getNumerosDeCachorros() {
+        return numerosDeCachorros;
+    }
+
+    public void setNumerosDeCachorros(int numerosDeCachorros) {
+        this.numerosDeCachorros = numerosDeCachorros;
+    }
+
     //Métodos
     public void comer(){}
 
@@ -79,6 +90,14 @@ public class Cachorro {
 
     public String pegar(){
         return "Bolinha";
+    }
+
+
+    @Override
+    public String toString() {
+        return "Cachorro{" +
+                "nome = '" + nome + '\'' +
+                '}';
     }
 
     public String interagir(String acao){
@@ -100,6 +119,8 @@ public class Cachorro {
             this.estadoDeEspirito = "neutro";
         }
         */
+
+
 
         return estadoDeEspirito;
     }
