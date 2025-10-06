@@ -1,6 +1,6 @@
 package animais;
 
-public class Animal {
+public abstract class Animal {
     // ================================
     // Atributos comuns a todos os animais
     // ================================
@@ -23,6 +23,46 @@ public class Animal {
         this.estadoDeEspirito = estadoDeEspirito;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getEstadoDeEspirito() {
+        return estadoDeEspirito;
+    }
+
+    public void setEstadoDeEspirito(String estadoDeEspirito) {
+        this.estadoDeEspirito = estadoDeEspirito;
+    }
+
 
     // ================================
     // Métodos genéricos que todos os animais possuem
@@ -35,7 +75,5 @@ public class Animal {
     protected void dormir() {}
 
     // Exemplo: emitir som (deve ser sobrescrito pelas subclasses)
-    public void soar() {
-        System.out.println(" ");
-    }
+    public abstract void soar();
 }

@@ -1,8 +1,9 @@
 import animais.Cachorro;
 import animais.Gato;
 import animais.Passaro;
+import lojas.Petshop;
 
-public class classNaoExecutaveis {
+public class Main {
     public static void main(String[] args) {
 
         // ================================
@@ -85,5 +86,16 @@ public class classNaoExecutaveis {
         System.out.println("O cachorro está " + cachorro1.interagir("vai dormir!"));
         System.out.println("O cachorro está " + cachorro1.interagir("nada"));
         */
+
+        Petshop petshop = new Petshop();
+
+        petshop.darBanho(passaro1);
+        System.out.println(cachorro2.getEstadoDeEspirito());
+
+        petshop.tosar(cachorro3);
+        System.out.println(cachorro3.getEstadoDeEspirito());
+
+        petshop.deixarNoHotel(gato1);
+        System.out.println(gato1.getEstadoDeEspirito());
     }
 }
