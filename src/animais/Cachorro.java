@@ -1,39 +1,37 @@
 package animais;
 
-public class Cachorro {
-    //Atributos
-    //Definindo caracteristicas do cachorro
-    private String nome;
-    private String cor;
-    private int altura;
-    private double peso;
+public class Cachorro extends Animal {
+    // ================================
+    // Atributos específicos do cachorro
+    // ================================
     private int tamanhoDoRabo;
-    private int numerosDeCachorros;
 
-    //Construtor padrão - recebe nada
-    public Cachorro(){}
+    // OBS: como esse contador é de instância, cada cachorro terá o seu.
+    static int numerosDeCachorros;
 
-    //Construtores adicionados
-     public Cachorro(String nome, String cor, int altura, double peso, int tamanhoDoRabo, String estadoDeEspirito) {
-        this.nome = nome;
-        this.cor = cor;
-        this.altura = altura;
-        this.peso = peso;
+
+    // ================================
+    // Construtor
+    // ================================
+    public Cachorro(String nome, String cor, int altura, double peso, int tamanhoDoRabo, String estadoDeEspirito) {
+        // Chama o construtor da classe Animal
+        super(nome, cor, altura, peso, estadoDeEspirito);
+
         this.tamanhoDoRabo = tamanhoDoRabo;
-        this.estadoDeEspirito = estadoDeEspirito;
 
-        numerosDeCachorros ++;
+        // Incrementa contador
+        numerosDeCachorros++;
     }
 
-    //Estado de espirito do cachorro
-    private String estadoDeEspirito;
 
-    //Encapsulamento
-    public String getNome(){
+    // ================================
+    // Encapsulamento (Getters e Setters)
+    // ================================
+    public String getNome() {
         return this.nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -69,9 +67,8 @@ public class Cachorro {
         this.tamanhoDoRabo = tamanhoDoRabo;
     }
 
-    public String getEstadoDeEspirito() {
-        return estadoDeEspirito;
-    }
+    // OBS: já herdado de Animal
+    // public String getEstadoDeEspirito() { return estadoDeEspirito; }
 
     public int getNumerosDeCachorros() {
         return numerosDeCachorros;
@@ -81,46 +78,46 @@ public class Cachorro {
         this.numerosDeCachorros = numerosDeCachorros;
     }
 
-    //Métodos
-    public void comer(){}
 
-    public  void latir(){
-        System.out.println("Au au!");
-    }
-
-    public String pegar(){
-        return "Bolinha";
-    }
-
-
+    // ================================
+    // Métodos sobrescritos
+    // ================================
     @Override
     public String toString() {
         return "Cachorro{" +
-                "nome = '" + nome + '\'' +
+                "nome='" + nome + '\'' +
+                ", cor='" + cor + '\'' +
+                ", altura=" + altura +
+                ", peso=" + peso +
+                ", tamanhoDoRabo=" + tamanhoDoRabo +
+                ", estadoDeEspirito='" + estadoDeEspirito + '\'' +
                 '}';
     }
 
-    public String interagir(String acao){
-        //Substituindo pelo swhitch
+    @Override
+    public void soar() {
+        System.out.println("Au au!");
+    }
+
+
+    // ================================
+    // Método de interação com o cachorro
+    // Altera o estado de espírito de acordo com a ação
+    // ================================
+    public String interagir(String acao) {
         switch (acao) {
-            case "carinho" : this.estadoDeEspirito = "feliz"; break;
-            case "vai dormir!" : this.estadoDeEspirito = "bravo"; break;
-            case "pisar na patinha" : this.estadoDeEspirito = "triste"; break;
-
-            default: this.estadoDeEspirito = "neutro";
+            case "carinho":
+                this.estadoDeEspirito = "feliz";
+                break;
+            case "vai dormir!":
+                this.estadoDeEspirito = "bravo";
+                break;
+            case "pisar na patinha":
+                this.estadoDeEspirito = "triste";
+                break;
+            default:
+                this.estadoDeEspirito = "neutro";
         }
-
-       /* if (acao.equals("carinho")){
-            this.estadoDeEspirito = "feliz";
-            return estadoDeEspirito;
-        }else if (acao.equals("vai dormir!")) {
-            this.estadoDeEspirito = "bravo!";
-        }else {
-            this.estadoDeEspirito = "neutro";
-        }
-        */
-
-
 
         return estadoDeEspirito;
     }
