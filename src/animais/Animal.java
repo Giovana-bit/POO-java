@@ -23,6 +23,10 @@ public abstract class Animal {
         this.estadoDeEspirito = estadoDeEspirito;
     }
 
+    // ================================
+    // Encapsulamento (Getters e Setters)
+    // ================================
+
     public String getNome() {
         return nome;
     }
